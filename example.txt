@@ -1,0 +1,35 @@
+local x = 0 + 0
+local y = 5 + 0
+local z = 7 + 0
+local w = 3 + 0
+cobegin[E]
+    from y > 4 do
+        y -= 1 + 0
+    loop
+        x += y + 0
+    until y <= 1
+    y += 4 + 0
+    x -= 4 + 0
+    set E
+    x <=> y
+    w += x + 2
+    //
+    w += 3 + x
+    z += 4 + 5
+    wait E
+    w += z + 3
+    if w >= 30 then
+        z -= x + 3
+        w -= 50 + 0
+    else
+        z -= y + 8
+        z += x + 0
+    fi w < 0
+    w += y + 5
+    z -= x + y
+coend[E]
+w <=> M[x]
+delocal w = 0 + 0
+delocal z = 0 - 2
+delocal y = 5 + 0
+delocal x = 5 + 0

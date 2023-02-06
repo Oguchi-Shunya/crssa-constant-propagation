@@ -1,0 +1,1951 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> ss
+Rule 2     ss -> s
+Rule 3     ss -> ss s
+Rule 4     s -> local
+Rule 5     s -> if
+Rule 6     s -> loop
+Rule 7     s -> co
+Rule 8     s -> update
+Rule 9     s -> exchange
+Rule 10    s -> excmem
+Rule 11    s -> set
+Rule 12    s -> wait
+Rule 13    s -> skip
+Rule 14    local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+Rule 15    if -> IF expr THEN ss ELSE ss FI expr
+Rule 16    loop -> FROM expr DO ss LOOP ss UNTIL expr
+Rule 17    co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+Rule 18    threads -> ss
+Rule 19    threads -> threads COSEP ss
+Rule 20    update -> r btype EQUAL expr
+Rule 21    exchange -> r EXCHANGE r
+Rule 22    excmem -> r EXCHANGE M LBRACK r RBRACK
+Rule 23    set -> SET IDENT
+Rule 24    wait -> WAIT IDENT
+Rule 25    skip -> SKIP
+Rule 26    expr -> r btype r
+Rule 27    btype -> PLUS
+Rule 28    btype -> MINUS
+Rule 29    btype -> XOR
+Rule 30    btype -> EQ
+Rule 31    btype -> NEQ
+Rule 32    btype -> LT
+Rule 33    btype -> GT
+Rule 34    btype -> LE
+Rule 35    btype -> GE
+Rule 36    r -> IDENT
+Rule 37    r -> NUMBER
+Rule 38    vs -> <empty>
+Rule 39    vs -> vs IDENT
+
+Terminals, with rules where they appear
+
+COBEGIN              : 17
+COEND                : 17
+COSEP                : 19
+DELOCAL              : 14
+DO                   : 16
+ELSE                 : 15
+EQ                   : 30
+EQUAL                : 14 14 20
+EXCHANGE             : 21 22
+FI                   : 15
+FROM                 : 16
+GE                   : 35
+GT                   : 33
+IDENT                : 14 14 23 24 36 39
+IF                   : 15
+LBRACK               : 17 17 22
+LE                   : 34
+LOCAL                : 14
+LOOP                 : 16
+LT                   : 32
+M                    : 22
+MINUS                : 28
+NEQ                  : 31
+NUMBER               : 37
+PLUS                 : 27
+RBRACK               : 17 17 22
+SET                  : 23
+SKIP                 : 25
+THEN                 : 15
+UNTIL                : 16
+WAIT                 : 24
+XOR                  : 29
+error                : 
+
+Nonterminals, with rules where they appear
+
+btype                : 20 26
+co                   : 7
+exchange             : 9
+excmem               : 10
+expr                 : 14 14 15 15 16 16 20
+if                   : 5
+local                : 4
+loop                 : 6
+program              : 0
+r                    : 20 21 21 22 22 26 26
+s                    : 2 3
+set                  : 11
+skip                 : 13
+ss                   : 1 3 14 15 15 16 16 18 19
+threads              : 17 19
+update               : 8
+vs                   : 17 17 39
+wait                 : 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . ss
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    program                        shift and go to state 1
+    ss                             shift and go to state 2
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> ss .
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    $end            reduce using rule 1 (program -> ss .)
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 3
+
+    (2) ss -> s .
+
+    LOCAL           reduce using rule 2 (ss -> s .)
+    IF              reduce using rule 2 (ss -> s .)
+    FROM            reduce using rule 2 (ss -> s .)
+    COBEGIN         reduce using rule 2 (ss -> s .)
+    SET             reduce using rule 2 (ss -> s .)
+    WAIT            reduce using rule 2 (ss -> s .)
+    SKIP            reduce using rule 2 (ss -> s .)
+    IDENT           reduce using rule 2 (ss -> s .)
+    NUMBER          reduce using rule 2 (ss -> s .)
+    $end            reduce using rule 2 (ss -> s .)
+    ELSE            reduce using rule 2 (ss -> s .)
+    LOOP            reduce using rule 2 (ss -> s .)
+    DELOCAL         reduce using rule 2 (ss -> s .)
+    COEND           reduce using rule 2 (ss -> s .)
+    COSEP           reduce using rule 2 (ss -> s .)
+    FI              reduce using rule 2 (ss -> s .)
+    UNTIL           reduce using rule 2 (ss -> s .)
+
+
+state 4
+
+    (4) s -> local .
+
+    LOCAL           reduce using rule 4 (s -> local .)
+    IF              reduce using rule 4 (s -> local .)
+    FROM            reduce using rule 4 (s -> local .)
+    COBEGIN         reduce using rule 4 (s -> local .)
+    SET             reduce using rule 4 (s -> local .)
+    WAIT            reduce using rule 4 (s -> local .)
+    SKIP            reduce using rule 4 (s -> local .)
+    IDENT           reduce using rule 4 (s -> local .)
+    NUMBER          reduce using rule 4 (s -> local .)
+    $end            reduce using rule 4 (s -> local .)
+    ELSE            reduce using rule 4 (s -> local .)
+    LOOP            reduce using rule 4 (s -> local .)
+    DELOCAL         reduce using rule 4 (s -> local .)
+    COEND           reduce using rule 4 (s -> local .)
+    COSEP           reduce using rule 4 (s -> local .)
+    FI              reduce using rule 4 (s -> local .)
+    UNTIL           reduce using rule 4 (s -> local .)
+
+
+state 5
+
+    (5) s -> if .
+
+    LOCAL           reduce using rule 5 (s -> if .)
+    IF              reduce using rule 5 (s -> if .)
+    FROM            reduce using rule 5 (s -> if .)
+    COBEGIN         reduce using rule 5 (s -> if .)
+    SET             reduce using rule 5 (s -> if .)
+    WAIT            reduce using rule 5 (s -> if .)
+    SKIP            reduce using rule 5 (s -> if .)
+    IDENT           reduce using rule 5 (s -> if .)
+    NUMBER          reduce using rule 5 (s -> if .)
+    $end            reduce using rule 5 (s -> if .)
+    ELSE            reduce using rule 5 (s -> if .)
+    LOOP            reduce using rule 5 (s -> if .)
+    DELOCAL         reduce using rule 5 (s -> if .)
+    COEND           reduce using rule 5 (s -> if .)
+    COSEP           reduce using rule 5 (s -> if .)
+    FI              reduce using rule 5 (s -> if .)
+    UNTIL           reduce using rule 5 (s -> if .)
+
+
+state 6
+
+    (6) s -> loop .
+
+    LOCAL           reduce using rule 6 (s -> loop .)
+    IF              reduce using rule 6 (s -> loop .)
+    FROM            reduce using rule 6 (s -> loop .)
+    COBEGIN         reduce using rule 6 (s -> loop .)
+    SET             reduce using rule 6 (s -> loop .)
+    WAIT            reduce using rule 6 (s -> loop .)
+    SKIP            reduce using rule 6 (s -> loop .)
+    IDENT           reduce using rule 6 (s -> loop .)
+    NUMBER          reduce using rule 6 (s -> loop .)
+    $end            reduce using rule 6 (s -> loop .)
+    ELSE            reduce using rule 6 (s -> loop .)
+    LOOP            reduce using rule 6 (s -> loop .)
+    DELOCAL         reduce using rule 6 (s -> loop .)
+    COEND           reduce using rule 6 (s -> loop .)
+    COSEP           reduce using rule 6 (s -> loop .)
+    FI              reduce using rule 6 (s -> loop .)
+    UNTIL           reduce using rule 6 (s -> loop .)
+
+
+state 7
+
+    (7) s -> co .
+
+    LOCAL           reduce using rule 7 (s -> co .)
+    IF              reduce using rule 7 (s -> co .)
+    FROM            reduce using rule 7 (s -> co .)
+    COBEGIN         reduce using rule 7 (s -> co .)
+    SET             reduce using rule 7 (s -> co .)
+    WAIT            reduce using rule 7 (s -> co .)
+    SKIP            reduce using rule 7 (s -> co .)
+    IDENT           reduce using rule 7 (s -> co .)
+    NUMBER          reduce using rule 7 (s -> co .)
+    $end            reduce using rule 7 (s -> co .)
+    ELSE            reduce using rule 7 (s -> co .)
+    LOOP            reduce using rule 7 (s -> co .)
+    DELOCAL         reduce using rule 7 (s -> co .)
+    COEND           reduce using rule 7 (s -> co .)
+    COSEP           reduce using rule 7 (s -> co .)
+    FI              reduce using rule 7 (s -> co .)
+    UNTIL           reduce using rule 7 (s -> co .)
+
+
+state 8
+
+    (8) s -> update .
+
+    LOCAL           reduce using rule 8 (s -> update .)
+    IF              reduce using rule 8 (s -> update .)
+    FROM            reduce using rule 8 (s -> update .)
+    COBEGIN         reduce using rule 8 (s -> update .)
+    SET             reduce using rule 8 (s -> update .)
+    WAIT            reduce using rule 8 (s -> update .)
+    SKIP            reduce using rule 8 (s -> update .)
+    IDENT           reduce using rule 8 (s -> update .)
+    NUMBER          reduce using rule 8 (s -> update .)
+    $end            reduce using rule 8 (s -> update .)
+    ELSE            reduce using rule 8 (s -> update .)
+    LOOP            reduce using rule 8 (s -> update .)
+    DELOCAL         reduce using rule 8 (s -> update .)
+    COEND           reduce using rule 8 (s -> update .)
+    COSEP           reduce using rule 8 (s -> update .)
+    FI              reduce using rule 8 (s -> update .)
+    UNTIL           reduce using rule 8 (s -> update .)
+
+
+state 9
+
+    (9) s -> exchange .
+
+    LOCAL           reduce using rule 9 (s -> exchange .)
+    IF              reduce using rule 9 (s -> exchange .)
+    FROM            reduce using rule 9 (s -> exchange .)
+    COBEGIN         reduce using rule 9 (s -> exchange .)
+    SET             reduce using rule 9 (s -> exchange .)
+    WAIT            reduce using rule 9 (s -> exchange .)
+    SKIP            reduce using rule 9 (s -> exchange .)
+    IDENT           reduce using rule 9 (s -> exchange .)
+    NUMBER          reduce using rule 9 (s -> exchange .)
+    $end            reduce using rule 9 (s -> exchange .)
+    ELSE            reduce using rule 9 (s -> exchange .)
+    LOOP            reduce using rule 9 (s -> exchange .)
+    DELOCAL         reduce using rule 9 (s -> exchange .)
+    COEND           reduce using rule 9 (s -> exchange .)
+    COSEP           reduce using rule 9 (s -> exchange .)
+    FI              reduce using rule 9 (s -> exchange .)
+    UNTIL           reduce using rule 9 (s -> exchange .)
+
+
+state 10
+
+    (10) s -> excmem .
+
+    LOCAL           reduce using rule 10 (s -> excmem .)
+    IF              reduce using rule 10 (s -> excmem .)
+    FROM            reduce using rule 10 (s -> excmem .)
+    COBEGIN         reduce using rule 10 (s -> excmem .)
+    SET             reduce using rule 10 (s -> excmem .)
+    WAIT            reduce using rule 10 (s -> excmem .)
+    SKIP            reduce using rule 10 (s -> excmem .)
+    IDENT           reduce using rule 10 (s -> excmem .)
+    NUMBER          reduce using rule 10 (s -> excmem .)
+    $end            reduce using rule 10 (s -> excmem .)
+    ELSE            reduce using rule 10 (s -> excmem .)
+    LOOP            reduce using rule 10 (s -> excmem .)
+    DELOCAL         reduce using rule 10 (s -> excmem .)
+    COEND           reduce using rule 10 (s -> excmem .)
+    COSEP           reduce using rule 10 (s -> excmem .)
+    FI              reduce using rule 10 (s -> excmem .)
+    UNTIL           reduce using rule 10 (s -> excmem .)
+
+
+state 11
+
+    (11) s -> set .
+
+    LOCAL           reduce using rule 11 (s -> set .)
+    IF              reduce using rule 11 (s -> set .)
+    FROM            reduce using rule 11 (s -> set .)
+    COBEGIN         reduce using rule 11 (s -> set .)
+    SET             reduce using rule 11 (s -> set .)
+    WAIT            reduce using rule 11 (s -> set .)
+    SKIP            reduce using rule 11 (s -> set .)
+    IDENT           reduce using rule 11 (s -> set .)
+    NUMBER          reduce using rule 11 (s -> set .)
+    $end            reduce using rule 11 (s -> set .)
+    ELSE            reduce using rule 11 (s -> set .)
+    LOOP            reduce using rule 11 (s -> set .)
+    DELOCAL         reduce using rule 11 (s -> set .)
+    COEND           reduce using rule 11 (s -> set .)
+    COSEP           reduce using rule 11 (s -> set .)
+    FI              reduce using rule 11 (s -> set .)
+    UNTIL           reduce using rule 11 (s -> set .)
+
+
+state 12
+
+    (12) s -> wait .
+
+    LOCAL           reduce using rule 12 (s -> wait .)
+    IF              reduce using rule 12 (s -> wait .)
+    FROM            reduce using rule 12 (s -> wait .)
+    COBEGIN         reduce using rule 12 (s -> wait .)
+    SET             reduce using rule 12 (s -> wait .)
+    WAIT            reduce using rule 12 (s -> wait .)
+    SKIP            reduce using rule 12 (s -> wait .)
+    IDENT           reduce using rule 12 (s -> wait .)
+    NUMBER          reduce using rule 12 (s -> wait .)
+    $end            reduce using rule 12 (s -> wait .)
+    ELSE            reduce using rule 12 (s -> wait .)
+    LOOP            reduce using rule 12 (s -> wait .)
+    DELOCAL         reduce using rule 12 (s -> wait .)
+    COEND           reduce using rule 12 (s -> wait .)
+    COSEP           reduce using rule 12 (s -> wait .)
+    FI              reduce using rule 12 (s -> wait .)
+    UNTIL           reduce using rule 12 (s -> wait .)
+
+
+state 13
+
+    (13) s -> skip .
+
+    LOCAL           reduce using rule 13 (s -> skip .)
+    IF              reduce using rule 13 (s -> skip .)
+    FROM            reduce using rule 13 (s -> skip .)
+    COBEGIN         reduce using rule 13 (s -> skip .)
+    SET             reduce using rule 13 (s -> skip .)
+    WAIT            reduce using rule 13 (s -> skip .)
+    SKIP            reduce using rule 13 (s -> skip .)
+    IDENT           reduce using rule 13 (s -> skip .)
+    NUMBER          reduce using rule 13 (s -> skip .)
+    $end            reduce using rule 13 (s -> skip .)
+    ELSE            reduce using rule 13 (s -> skip .)
+    LOOP            reduce using rule 13 (s -> skip .)
+    DELOCAL         reduce using rule 13 (s -> skip .)
+    COEND           reduce using rule 13 (s -> skip .)
+    COSEP           reduce using rule 13 (s -> skip .)
+    FI              reduce using rule 13 (s -> skip .)
+    UNTIL           reduce using rule 13 (s -> skip .)
+
+
+state 14
+
+    (14) local -> LOCAL . IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+
+    IDENT           shift and go to state 25
+
+
+state 15
+
+    (36) r -> IDENT .
+
+    EXCHANGE        reduce using rule 36 (r -> IDENT .)
+    PLUS            reduce using rule 36 (r -> IDENT .)
+    MINUS           reduce using rule 36 (r -> IDENT .)
+    XOR             reduce using rule 36 (r -> IDENT .)
+    EQ              reduce using rule 36 (r -> IDENT .)
+    NEQ             reduce using rule 36 (r -> IDENT .)
+    LT              reduce using rule 36 (r -> IDENT .)
+    GT              reduce using rule 36 (r -> IDENT .)
+    LE              reduce using rule 36 (r -> IDENT .)
+    GE              reduce using rule 36 (r -> IDENT .)
+    LOCAL           reduce using rule 36 (r -> IDENT .)
+    IF              reduce using rule 36 (r -> IDENT .)
+    FROM            reduce using rule 36 (r -> IDENT .)
+    COBEGIN         reduce using rule 36 (r -> IDENT .)
+    SET             reduce using rule 36 (r -> IDENT .)
+    WAIT            reduce using rule 36 (r -> IDENT .)
+    SKIP            reduce using rule 36 (r -> IDENT .)
+    IDENT           reduce using rule 36 (r -> IDENT .)
+    NUMBER          reduce using rule 36 (r -> IDENT .)
+    $end            reduce using rule 36 (r -> IDENT .)
+    ELSE            reduce using rule 36 (r -> IDENT .)
+    LOOP            reduce using rule 36 (r -> IDENT .)
+    DELOCAL         reduce using rule 36 (r -> IDENT .)
+    COEND           reduce using rule 36 (r -> IDENT .)
+    COSEP           reduce using rule 36 (r -> IDENT .)
+    FI              reduce using rule 36 (r -> IDENT .)
+    UNTIL           reduce using rule 36 (r -> IDENT .)
+    THEN            reduce using rule 36 (r -> IDENT .)
+    DO              reduce using rule 36 (r -> IDENT .)
+    RBRACK          reduce using rule 36 (r -> IDENT .)
+
+
+state 16
+
+    (15) if -> IF . expr THEN ss ELSE ss FI expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    expr                           shift and go to state 26
+    r                              shift and go to state 27
+
+state 17
+
+    (16) loop -> FROM . expr DO ss LOOP ss UNTIL expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    expr                           shift and go to state 28
+    r                              shift and go to state 27
+
+state 18
+
+    (17) co -> COBEGIN . LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+
+    LBRACK          shift and go to state 29
+
+
+state 19
+
+    (20) update -> r . btype EQUAL expr
+    (21) exchange -> r . EXCHANGE r
+    (22) excmem -> r . EXCHANGE M LBRACK r RBRACK
+    (27) btype -> . PLUS
+    (28) btype -> . MINUS
+    (29) btype -> . XOR
+    (30) btype -> . EQ
+    (31) btype -> . NEQ
+    (32) btype -> . LT
+    (33) btype -> . GT
+    (34) btype -> . LE
+    (35) btype -> . GE
+
+    EXCHANGE        shift and go to state 31
+    PLUS            shift and go to state 32
+    MINUS           shift and go to state 33
+    XOR             shift and go to state 34
+    EQ              shift and go to state 35
+    NEQ             shift and go to state 36
+    LT              shift and go to state 37
+    GT              shift and go to state 38
+    LE              shift and go to state 39
+    GE              shift and go to state 40
+
+    btype                          shift and go to state 30
+
+state 20
+
+    (23) set -> SET . IDENT
+
+    IDENT           shift and go to state 41
+
+
+state 21
+
+    (24) wait -> WAIT . IDENT
+
+    IDENT           shift and go to state 42
+
+
+state 22
+
+    (25) skip -> SKIP .
+
+    LOCAL           reduce using rule 25 (skip -> SKIP .)
+    IF              reduce using rule 25 (skip -> SKIP .)
+    FROM            reduce using rule 25 (skip -> SKIP .)
+    COBEGIN         reduce using rule 25 (skip -> SKIP .)
+    SET             reduce using rule 25 (skip -> SKIP .)
+    WAIT            reduce using rule 25 (skip -> SKIP .)
+    SKIP            reduce using rule 25 (skip -> SKIP .)
+    IDENT           reduce using rule 25 (skip -> SKIP .)
+    NUMBER          reduce using rule 25 (skip -> SKIP .)
+    $end            reduce using rule 25 (skip -> SKIP .)
+    ELSE            reduce using rule 25 (skip -> SKIP .)
+    LOOP            reduce using rule 25 (skip -> SKIP .)
+    DELOCAL         reduce using rule 25 (skip -> SKIP .)
+    COEND           reduce using rule 25 (skip -> SKIP .)
+    COSEP           reduce using rule 25 (skip -> SKIP .)
+    FI              reduce using rule 25 (skip -> SKIP .)
+    UNTIL           reduce using rule 25 (skip -> SKIP .)
+
+
+state 23
+
+    (37) r -> NUMBER .
+
+    EXCHANGE        reduce using rule 37 (r -> NUMBER .)
+    PLUS            reduce using rule 37 (r -> NUMBER .)
+    MINUS           reduce using rule 37 (r -> NUMBER .)
+    XOR             reduce using rule 37 (r -> NUMBER .)
+    EQ              reduce using rule 37 (r -> NUMBER .)
+    NEQ             reduce using rule 37 (r -> NUMBER .)
+    LT              reduce using rule 37 (r -> NUMBER .)
+    GT              reduce using rule 37 (r -> NUMBER .)
+    LE              reduce using rule 37 (r -> NUMBER .)
+    GE              reduce using rule 37 (r -> NUMBER .)
+    LOCAL           reduce using rule 37 (r -> NUMBER .)
+    IF              reduce using rule 37 (r -> NUMBER .)
+    FROM            reduce using rule 37 (r -> NUMBER .)
+    COBEGIN         reduce using rule 37 (r -> NUMBER .)
+    SET             reduce using rule 37 (r -> NUMBER .)
+    WAIT            reduce using rule 37 (r -> NUMBER .)
+    SKIP            reduce using rule 37 (r -> NUMBER .)
+    IDENT           reduce using rule 37 (r -> NUMBER .)
+    NUMBER          reduce using rule 37 (r -> NUMBER .)
+    $end            reduce using rule 37 (r -> NUMBER .)
+    ELSE            reduce using rule 37 (r -> NUMBER .)
+    LOOP            reduce using rule 37 (r -> NUMBER .)
+    DELOCAL         reduce using rule 37 (r -> NUMBER .)
+    COEND           reduce using rule 37 (r -> NUMBER .)
+    COSEP           reduce using rule 37 (r -> NUMBER .)
+    FI              reduce using rule 37 (r -> NUMBER .)
+    UNTIL           reduce using rule 37 (r -> NUMBER .)
+    THEN            reduce using rule 37 (r -> NUMBER .)
+    DO              reduce using rule 37 (r -> NUMBER .)
+    RBRACK          reduce using rule 37 (r -> NUMBER .)
+
+
+state 24
+
+    (3) ss -> ss s .
+
+    LOCAL           reduce using rule 3 (ss -> ss s .)
+    IF              reduce using rule 3 (ss -> ss s .)
+    FROM            reduce using rule 3 (ss -> ss s .)
+    COBEGIN         reduce using rule 3 (ss -> ss s .)
+    SET             reduce using rule 3 (ss -> ss s .)
+    WAIT            reduce using rule 3 (ss -> ss s .)
+    SKIP            reduce using rule 3 (ss -> ss s .)
+    IDENT           reduce using rule 3 (ss -> ss s .)
+    NUMBER          reduce using rule 3 (ss -> ss s .)
+    $end            reduce using rule 3 (ss -> ss s .)
+    ELSE            reduce using rule 3 (ss -> ss s .)
+    LOOP            reduce using rule 3 (ss -> ss s .)
+    DELOCAL         reduce using rule 3 (ss -> ss s .)
+    COEND           reduce using rule 3 (ss -> ss s .)
+    COSEP           reduce using rule 3 (ss -> ss s .)
+    FI              reduce using rule 3 (ss -> ss s .)
+    UNTIL           reduce using rule 3 (ss -> ss s .)
+
+
+state 25
+
+    (14) local -> LOCAL IDENT . EQUAL expr ss DELOCAL IDENT EQUAL expr
+
+    EQUAL           shift and go to state 43
+
+
+state 26
+
+    (15) if -> IF expr . THEN ss ELSE ss FI expr
+
+    THEN            shift and go to state 44
+
+
+state 27
+
+    (26) expr -> r . btype r
+    (27) btype -> . PLUS
+    (28) btype -> . MINUS
+    (29) btype -> . XOR
+    (30) btype -> . EQ
+    (31) btype -> . NEQ
+    (32) btype -> . LT
+    (33) btype -> . GT
+    (34) btype -> . LE
+    (35) btype -> . GE
+
+    PLUS            shift and go to state 32
+    MINUS           shift and go to state 33
+    XOR             shift and go to state 34
+    EQ              shift and go to state 35
+    NEQ             shift and go to state 36
+    LT              shift and go to state 37
+    GT              shift and go to state 38
+    LE              shift and go to state 39
+    GE              shift and go to state 40
+
+    btype                          shift and go to state 45
+
+state 28
+
+    (16) loop -> FROM expr . DO ss LOOP ss UNTIL expr
+
+    DO              shift and go to state 46
+
+
+state 29
+
+    (17) co -> COBEGIN LBRACK . vs RBRACK threads COEND LBRACK vs RBRACK
+    (38) vs -> .
+    (39) vs -> . vs IDENT
+
+    RBRACK          reduce using rule 38 (vs -> .)
+    IDENT           reduce using rule 38 (vs -> .)
+
+    vs                             shift and go to state 47
+
+state 30
+
+    (20) update -> r btype . EQUAL expr
+
+    EQUAL           shift and go to state 48
+
+
+state 31
+
+    (21) exchange -> r EXCHANGE . r
+    (22) excmem -> r EXCHANGE . M LBRACK r RBRACK
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    M               shift and go to state 50
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    r                              shift and go to state 49
+
+state 32
+
+    (27) btype -> PLUS .
+
+    EQUAL           reduce using rule 27 (btype -> PLUS .)
+    IDENT           reduce using rule 27 (btype -> PLUS .)
+    NUMBER          reduce using rule 27 (btype -> PLUS .)
+
+
+state 33
+
+    (28) btype -> MINUS .
+
+    EQUAL           reduce using rule 28 (btype -> MINUS .)
+    IDENT           reduce using rule 28 (btype -> MINUS .)
+    NUMBER          reduce using rule 28 (btype -> MINUS .)
+
+
+state 34
+
+    (29) btype -> XOR .
+
+    EQUAL           reduce using rule 29 (btype -> XOR .)
+    IDENT           reduce using rule 29 (btype -> XOR .)
+    NUMBER          reduce using rule 29 (btype -> XOR .)
+
+
+state 35
+
+    (30) btype -> EQ .
+
+    EQUAL           reduce using rule 30 (btype -> EQ .)
+    IDENT           reduce using rule 30 (btype -> EQ .)
+    NUMBER          reduce using rule 30 (btype -> EQ .)
+
+
+state 36
+
+    (31) btype -> NEQ .
+
+    EQUAL           reduce using rule 31 (btype -> NEQ .)
+    IDENT           reduce using rule 31 (btype -> NEQ .)
+    NUMBER          reduce using rule 31 (btype -> NEQ .)
+
+
+state 37
+
+    (32) btype -> LT .
+
+    EQUAL           reduce using rule 32 (btype -> LT .)
+    IDENT           reduce using rule 32 (btype -> LT .)
+    NUMBER          reduce using rule 32 (btype -> LT .)
+
+
+state 38
+
+    (33) btype -> GT .
+
+    EQUAL           reduce using rule 33 (btype -> GT .)
+    IDENT           reduce using rule 33 (btype -> GT .)
+    NUMBER          reduce using rule 33 (btype -> GT .)
+
+
+state 39
+
+    (34) btype -> LE .
+
+    EQUAL           reduce using rule 34 (btype -> LE .)
+    IDENT           reduce using rule 34 (btype -> LE .)
+    NUMBER          reduce using rule 34 (btype -> LE .)
+
+
+state 40
+
+    (35) btype -> GE .
+
+    EQUAL           reduce using rule 35 (btype -> GE .)
+    IDENT           reduce using rule 35 (btype -> GE .)
+    NUMBER          reduce using rule 35 (btype -> GE .)
+
+
+state 41
+
+    (23) set -> SET IDENT .
+
+    LOCAL           reduce using rule 23 (set -> SET IDENT .)
+    IF              reduce using rule 23 (set -> SET IDENT .)
+    FROM            reduce using rule 23 (set -> SET IDENT .)
+    COBEGIN         reduce using rule 23 (set -> SET IDENT .)
+    SET             reduce using rule 23 (set -> SET IDENT .)
+    WAIT            reduce using rule 23 (set -> SET IDENT .)
+    SKIP            reduce using rule 23 (set -> SET IDENT .)
+    IDENT           reduce using rule 23 (set -> SET IDENT .)
+    NUMBER          reduce using rule 23 (set -> SET IDENT .)
+    $end            reduce using rule 23 (set -> SET IDENT .)
+    ELSE            reduce using rule 23 (set -> SET IDENT .)
+    LOOP            reduce using rule 23 (set -> SET IDENT .)
+    DELOCAL         reduce using rule 23 (set -> SET IDENT .)
+    COEND           reduce using rule 23 (set -> SET IDENT .)
+    COSEP           reduce using rule 23 (set -> SET IDENT .)
+    FI              reduce using rule 23 (set -> SET IDENT .)
+    UNTIL           reduce using rule 23 (set -> SET IDENT .)
+
+
+state 42
+
+    (24) wait -> WAIT IDENT .
+
+    LOCAL           reduce using rule 24 (wait -> WAIT IDENT .)
+    IF              reduce using rule 24 (wait -> WAIT IDENT .)
+    FROM            reduce using rule 24 (wait -> WAIT IDENT .)
+    COBEGIN         reduce using rule 24 (wait -> WAIT IDENT .)
+    SET             reduce using rule 24 (wait -> WAIT IDENT .)
+    WAIT            reduce using rule 24 (wait -> WAIT IDENT .)
+    SKIP            reduce using rule 24 (wait -> WAIT IDENT .)
+    IDENT           reduce using rule 24 (wait -> WAIT IDENT .)
+    NUMBER          reduce using rule 24 (wait -> WAIT IDENT .)
+    $end            reduce using rule 24 (wait -> WAIT IDENT .)
+    ELSE            reduce using rule 24 (wait -> WAIT IDENT .)
+    LOOP            reduce using rule 24 (wait -> WAIT IDENT .)
+    DELOCAL         reduce using rule 24 (wait -> WAIT IDENT .)
+    COEND           reduce using rule 24 (wait -> WAIT IDENT .)
+    COSEP           reduce using rule 24 (wait -> WAIT IDENT .)
+    FI              reduce using rule 24 (wait -> WAIT IDENT .)
+    UNTIL           reduce using rule 24 (wait -> WAIT IDENT .)
+
+
+state 43
+
+    (14) local -> LOCAL IDENT EQUAL . expr ss DELOCAL IDENT EQUAL expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    expr                           shift and go to state 51
+    r                              shift and go to state 27
+
+state 44
+
+    (15) if -> IF expr THEN . ss ELSE ss FI expr
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    ss                             shift and go to state 52
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 45
+
+    (26) expr -> r btype . r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    r                              shift and go to state 53
+
+state 46
+
+    (16) loop -> FROM expr DO . ss LOOP ss UNTIL expr
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    ss                             shift and go to state 54
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 47
+
+    (17) co -> COBEGIN LBRACK vs . RBRACK threads COEND LBRACK vs RBRACK
+    (39) vs -> vs . IDENT
+
+    RBRACK          shift and go to state 55
+    IDENT           shift and go to state 56
+
+
+state 48
+
+    (20) update -> r btype EQUAL . expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    r                              shift and go to state 27
+    expr                           shift and go to state 57
+
+state 49
+
+    (21) exchange -> r EXCHANGE r .
+
+    LOCAL           reduce using rule 21 (exchange -> r EXCHANGE r .)
+    IF              reduce using rule 21 (exchange -> r EXCHANGE r .)
+    FROM            reduce using rule 21 (exchange -> r EXCHANGE r .)
+    COBEGIN         reduce using rule 21 (exchange -> r EXCHANGE r .)
+    SET             reduce using rule 21 (exchange -> r EXCHANGE r .)
+    WAIT            reduce using rule 21 (exchange -> r EXCHANGE r .)
+    SKIP            reduce using rule 21 (exchange -> r EXCHANGE r .)
+    IDENT           reduce using rule 21 (exchange -> r EXCHANGE r .)
+    NUMBER          reduce using rule 21 (exchange -> r EXCHANGE r .)
+    $end            reduce using rule 21 (exchange -> r EXCHANGE r .)
+    ELSE            reduce using rule 21 (exchange -> r EXCHANGE r .)
+    LOOP            reduce using rule 21 (exchange -> r EXCHANGE r .)
+    DELOCAL         reduce using rule 21 (exchange -> r EXCHANGE r .)
+    COEND           reduce using rule 21 (exchange -> r EXCHANGE r .)
+    COSEP           reduce using rule 21 (exchange -> r EXCHANGE r .)
+    FI              reduce using rule 21 (exchange -> r EXCHANGE r .)
+    UNTIL           reduce using rule 21 (exchange -> r EXCHANGE r .)
+
+
+state 50
+
+    (22) excmem -> r EXCHANGE M . LBRACK r RBRACK
+
+    LBRACK          shift and go to state 58
+
+
+state 51
+
+    (14) local -> LOCAL IDENT EQUAL expr . ss DELOCAL IDENT EQUAL expr
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    ss                             shift and go to state 59
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 52
+
+    (15) if -> IF expr THEN ss . ELSE ss FI expr
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    ELSE            shift and go to state 60
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 53
+
+    (26) expr -> r btype r .
+
+    THEN            reduce using rule 26 (expr -> r btype r .)
+    DO              reduce using rule 26 (expr -> r btype r .)
+    LOCAL           reduce using rule 26 (expr -> r btype r .)
+    IF              reduce using rule 26 (expr -> r btype r .)
+    FROM            reduce using rule 26 (expr -> r btype r .)
+    COBEGIN         reduce using rule 26 (expr -> r btype r .)
+    SET             reduce using rule 26 (expr -> r btype r .)
+    WAIT            reduce using rule 26 (expr -> r btype r .)
+    SKIP            reduce using rule 26 (expr -> r btype r .)
+    IDENT           reduce using rule 26 (expr -> r btype r .)
+    NUMBER          reduce using rule 26 (expr -> r btype r .)
+    $end            reduce using rule 26 (expr -> r btype r .)
+    ELSE            reduce using rule 26 (expr -> r btype r .)
+    LOOP            reduce using rule 26 (expr -> r btype r .)
+    DELOCAL         reduce using rule 26 (expr -> r btype r .)
+    COEND           reduce using rule 26 (expr -> r btype r .)
+    COSEP           reduce using rule 26 (expr -> r btype r .)
+    FI              reduce using rule 26 (expr -> r btype r .)
+    UNTIL           reduce using rule 26 (expr -> r btype r .)
+
+
+state 54
+
+    (16) loop -> FROM expr DO ss . LOOP ss UNTIL expr
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOOP            shift and go to state 61
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 55
+
+    (17) co -> COBEGIN LBRACK vs RBRACK . threads COEND LBRACK vs RBRACK
+    (18) threads -> . ss
+    (19) threads -> . threads COSEP ss
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    threads                        shift and go to state 62
+    ss                             shift and go to state 63
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 56
+
+    (39) vs -> vs IDENT .
+
+    RBRACK          reduce using rule 39 (vs -> vs IDENT .)
+    IDENT           reduce using rule 39 (vs -> vs IDENT .)
+
+
+state 57
+
+    (20) update -> r btype EQUAL expr .
+
+    LOCAL           reduce using rule 20 (update -> r btype EQUAL expr .)
+    IF              reduce using rule 20 (update -> r btype EQUAL expr .)
+    FROM            reduce using rule 20 (update -> r btype EQUAL expr .)
+    COBEGIN         reduce using rule 20 (update -> r btype EQUAL expr .)
+    SET             reduce using rule 20 (update -> r btype EQUAL expr .)
+    WAIT            reduce using rule 20 (update -> r btype EQUAL expr .)
+    SKIP            reduce using rule 20 (update -> r btype EQUAL expr .)
+    IDENT           reduce using rule 20 (update -> r btype EQUAL expr .)
+    NUMBER          reduce using rule 20 (update -> r btype EQUAL expr .)
+    $end            reduce using rule 20 (update -> r btype EQUAL expr .)
+    ELSE            reduce using rule 20 (update -> r btype EQUAL expr .)
+    LOOP            reduce using rule 20 (update -> r btype EQUAL expr .)
+    DELOCAL         reduce using rule 20 (update -> r btype EQUAL expr .)
+    COEND           reduce using rule 20 (update -> r btype EQUAL expr .)
+    COSEP           reduce using rule 20 (update -> r btype EQUAL expr .)
+    FI              reduce using rule 20 (update -> r btype EQUAL expr .)
+    UNTIL           reduce using rule 20 (update -> r btype EQUAL expr .)
+
+
+state 58
+
+    (22) excmem -> r EXCHANGE M LBRACK . r RBRACK
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    r                              shift and go to state 64
+
+state 59
+
+    (14) local -> LOCAL IDENT EQUAL expr ss . DELOCAL IDENT EQUAL expr
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    DELOCAL         shift and go to state 65
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 60
+
+    (15) if -> IF expr THEN ss ELSE . ss FI expr
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    ss                             shift and go to state 66
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 61
+
+    (16) loop -> FROM expr DO ss LOOP . ss UNTIL expr
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    ss                             shift and go to state 67
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 62
+
+    (17) co -> COBEGIN LBRACK vs RBRACK threads . COEND LBRACK vs RBRACK
+    (19) threads -> threads . COSEP ss
+
+    COEND           shift and go to state 68
+    COSEP           shift and go to state 69
+
+
+state 63
+
+    (18) threads -> ss .
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    COEND           reduce using rule 18 (threads -> ss .)
+    COSEP           reduce using rule 18 (threads -> ss .)
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 64
+
+    (22) excmem -> r EXCHANGE M LBRACK r . RBRACK
+
+    RBRACK          shift and go to state 70
+
+
+state 65
+
+    (14) local -> LOCAL IDENT EQUAL expr ss DELOCAL . IDENT EQUAL expr
+
+    IDENT           shift and go to state 71
+
+
+state 66
+
+    (15) if -> IF expr THEN ss ELSE ss . FI expr
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    FI              shift and go to state 72
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 67
+
+    (16) loop -> FROM expr DO ss LOOP ss . UNTIL expr
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    UNTIL           shift and go to state 73
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 68
+
+    (17) co -> COBEGIN LBRACK vs RBRACK threads COEND . LBRACK vs RBRACK
+
+    LBRACK          shift and go to state 74
+
+
+state 69
+
+    (19) threads -> threads COSEP . ss
+    (2) ss -> . s
+    (3) ss -> . ss s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    ss                             shift and go to state 75
+    s                              shift and go to state 3
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 70
+
+    (22) excmem -> r EXCHANGE M LBRACK r RBRACK .
+
+    LOCAL           reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    IF              reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    FROM            reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    COBEGIN         reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    SET             reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    WAIT            reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    SKIP            reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    IDENT           reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    NUMBER          reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    $end            reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    ELSE            reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    LOOP            reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    DELOCAL         reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    COEND           reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    COSEP           reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    FI              reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+    UNTIL           reduce using rule 22 (excmem -> r EXCHANGE M LBRACK r RBRACK .)
+
+
+state 71
+
+    (14) local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT . EQUAL expr
+
+    EQUAL           shift and go to state 76
+
+
+state 72
+
+    (15) if -> IF expr THEN ss ELSE ss FI . expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    expr                           shift and go to state 77
+    r                              shift and go to state 27
+
+state 73
+
+    (16) loop -> FROM expr DO ss LOOP ss UNTIL . expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    expr                           shift and go to state 78
+    r                              shift and go to state 27
+
+state 74
+
+    (17) co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK . vs RBRACK
+    (38) vs -> .
+    (39) vs -> . vs IDENT
+
+    RBRACK          reduce using rule 38 (vs -> .)
+    IDENT           reduce using rule 38 (vs -> .)
+
+    vs                             shift and go to state 79
+
+state 75
+
+    (19) threads -> threads COSEP ss .
+    (3) ss -> ss . s
+    (4) s -> . local
+    (5) s -> . if
+    (6) s -> . loop
+    (7) s -> . co
+    (8) s -> . update
+    (9) s -> . exchange
+    (10) s -> . excmem
+    (11) s -> . set
+    (12) s -> . wait
+    (13) s -> . skip
+    (14) local -> . LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr
+    (15) if -> . IF expr THEN ss ELSE ss FI expr
+    (16) loop -> . FROM expr DO ss LOOP ss UNTIL expr
+    (17) co -> . COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK
+    (20) update -> . r btype EQUAL expr
+    (21) exchange -> . r EXCHANGE r
+    (22) excmem -> . r EXCHANGE M LBRACK r RBRACK
+    (23) set -> . SET IDENT
+    (24) wait -> . WAIT IDENT
+    (25) skip -> . SKIP
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    COEND           reduce using rule 19 (threads -> threads COSEP ss .)
+    COSEP           reduce using rule 19 (threads -> threads COSEP ss .)
+    LOCAL           shift and go to state 14
+    IF              shift and go to state 16
+    FROM            shift and go to state 17
+    COBEGIN         shift and go to state 18
+    SET             shift and go to state 20
+    WAIT            shift and go to state 21
+    SKIP            shift and go to state 22
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    s                              shift and go to state 24
+    local                          shift and go to state 4
+    if                             shift and go to state 5
+    loop                           shift and go to state 6
+    co                             shift and go to state 7
+    update                         shift and go to state 8
+    exchange                       shift and go to state 9
+    excmem                         shift and go to state 10
+    set                            shift and go to state 11
+    wait                           shift and go to state 12
+    skip                           shift and go to state 13
+    r                              shift and go to state 19
+
+state 76
+
+    (14) local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL . expr
+    (26) expr -> . r btype r
+    (36) r -> . IDENT
+    (37) r -> . NUMBER
+
+    IDENT           shift and go to state 15
+    NUMBER          shift and go to state 23
+
+    expr                           shift and go to state 80
+    r                              shift and go to state 27
+
+state 77
+
+    (15) if -> IF expr THEN ss ELSE ss FI expr .
+
+    LOCAL           reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    IF              reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    FROM            reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    COBEGIN         reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    SET             reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    WAIT            reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    SKIP            reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    IDENT           reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    NUMBER          reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    $end            reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    ELSE            reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    LOOP            reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    DELOCAL         reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    COEND           reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    COSEP           reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    FI              reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+    UNTIL           reduce using rule 15 (if -> IF expr THEN ss ELSE ss FI expr .)
+
+
+state 78
+
+    (16) loop -> FROM expr DO ss LOOP ss UNTIL expr .
+
+    LOCAL           reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    IF              reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    FROM            reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    COBEGIN         reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    SET             reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    WAIT            reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    SKIP            reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    IDENT           reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    NUMBER          reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    $end            reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    ELSE            reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    LOOP            reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    DELOCAL         reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    COEND           reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    COSEP           reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    FI              reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+    UNTIL           reduce using rule 16 (loop -> FROM expr DO ss LOOP ss UNTIL expr .)
+
+
+state 79
+
+    (17) co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs . RBRACK
+    (39) vs -> vs . IDENT
+
+    RBRACK          shift and go to state 81
+    IDENT           shift and go to state 56
+
+
+state 80
+
+    (14) local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .
+
+    LOCAL           reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    IF              reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    FROM            reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    COBEGIN         reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    SET             reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    WAIT            reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    SKIP            reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    IDENT           reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    NUMBER          reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    $end            reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    ELSE            reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    LOOP            reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    DELOCAL         reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    COEND           reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    COSEP           reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    FI              reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+    UNTIL           reduce using rule 14 (local -> LOCAL IDENT EQUAL expr ss DELOCAL IDENT EQUAL expr .)
+
+
+state 81
+
+    (17) co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .
+
+    LOCAL           reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    IF              reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    FROM            reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    COBEGIN         reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    SET             reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    WAIT            reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    SKIP            reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    IDENT           reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    NUMBER          reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    $end            reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    ELSE            reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    LOOP            reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    DELOCAL         reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    COEND           reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    COSEP           reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    FI              reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+    UNTIL           reduce using rule 17 (co -> COBEGIN LBRACK vs RBRACK threads COEND LBRACK vs RBRACK .)
+
